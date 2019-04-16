@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ActivityUpdate">
+    <LinearLayout
+        android:id="@+id/linear_name_them_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_20sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:textColor="#000"
+            android:textSize="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/edit_suaName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tên danh bạ" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_image_them_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_name_them_mon_an"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="#000"
+            android:textSize="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/edit_suaPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Số điện thoại" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_desc_them_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_image_them_mon_an"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textColor="#000"
+            android:textSize="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/edit_suaAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Địa chỉ người liên lạc"
+            android:maxLines="2" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_recipe_them_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_desc_them_mon_an"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Avartar"
+            android:textColor="#000"
+            android:textSize="@dimen/_15sdp" />
+
+        <EditText
+            android:id="@+id/edit_suaAvartar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Link ảnh đại diện"
+            android:maxLines="3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear_category_them_mon_an"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear_recipe_them_mon_an"
+        android:layout_marginLeft="@dimen/_20sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        android:layout_marginRight="@dimen/_20sdp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:background="#ADD5E7"
+            android:id="@+id/btn_update"
+            android:layout_height="wrap_content"
+            android:text="Sửa" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_huybosua"
+            android:background="#ADD5E7"
+            android:layout_marginLeft="@dimen/_30sdp"
+            android:text="Thoát" />
+    </LinearLayout>
+
+</RelativeLayout>
