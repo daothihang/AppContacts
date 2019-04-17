@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.daothihang.mymanagercontacts.R;
+import com.daothihang.mymanagercontacts.UpdateDelete;
 import com.daothihang.mymanagercontacts.untils.DatabaseContacts;
 
 public class ActivityUpdate extends AppCompatActivity {
@@ -19,13 +20,14 @@ public class ActivityUpdate extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update);
+
         findId();
         loadData();
     }
 
 
     private void loadData() {
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         String name = intent.getStringExtra("name");
         Bundle bundle = getIntent().getExtras();
         final String id = bundle.getString("iduser");
@@ -41,7 +43,9 @@ public class ActivityUpdate extends AppCompatActivity {
             public void onClick(View v) {
                 databaseContacts = new DatabaseContacts(getApplicationContext());
                 databaseContacts.updateUsers(editName.getText().toString(), editPhone.getText().toString(), editAddress.getText().toString(), editAvartar.getText().toString(), id);
-                finish();
+
+                finishAffinity();
+                startActivity(new Intent(ActivityUpdate.this, MainActivity.class));
             }
         });
         btnHuy.setOnClickListener(new View.OnClickListener() {

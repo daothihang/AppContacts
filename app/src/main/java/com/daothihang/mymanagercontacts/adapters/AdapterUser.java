@@ -1,10 +1,9 @@
 package com.daothihang.mymanagercontacts.adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.util.DiffUtil;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,9 +20,9 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.FitCenter;
 import com.bumptech.glide.request.RequestOptions;
 import com.daothihang.mymanagercontacts.R;
-import com.daothihang.mymanagercontacts.activities.ActivityAddContacts;
+import com.daothihang.mymanagercontacts.UpdateDelete;
 import com.daothihang.mymanagercontacts.activities.ActivityUpdate;
-import com.daothihang.mymanagercontacts.models.DiffCallbackUser;
+import com.daothihang.mymanagercontacts.activities.MainActivity;
 import com.daothihang.mymanagercontacts.models.User;
 import com.daothihang.mymanagercontacts.untils.DatabaseContacts;
 
@@ -35,19 +34,22 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
     private Context mContext;
     private ArrayList<User> dataSrc;
     private ArrayList<User> lsFilted;
+    private UpdateDelete lister;
 
-    public AdapterUser(Context context, ArrayList<User> data, DatabaseContacts datas) {
+    public AdapterUser(Context context, ArrayList<User> data, DatabaseContacts datas, UpdateDelete lister) {
         mContext = context;
         this.dataSrc = data;
         this.lsFilted = data;
         this.data = datas;
+        this.lister = lister;
 
     }
-//DIFFUTIL
-    private List<User> mEmployees = new ArrayList<>();
+
+    //DIFFUTIL
+    private List<User> usersArra = new ArrayList<>();
 
     public AdapterUser(List<User> employeeList) {
-        this.mEmployees.addAll(employeeList);
+        this.usersArra.addAll(employeeList);
     }
 //
 
@@ -62,21 +64,27 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
         return new RecyclerViewHolder(view);
     }
 
-
+    private static final int REQUEST_CODE_UPDATE = 102;
+    private static final int REQUEST_CODE_DELETE = 103;
     RequestOptions options = new RequestOptions().placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background).transform(new CenterCrop())
             .transform(new FitCenter());
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
-        //final User employee = mEmployees.get(position);
+        String title = lsFilted.get(position).getName();
+
+        String titleAvartar = title.substring(0,1);
+        String titleAvartar1 = titleAvartar.toLowerCase();
+        holder.tvTitle.setText(titleAvartar1);
 
         holder.tvId.setText(lsFilted.get(position).getId_user());
         holder.tvName.setText(lsFilted.get(position).getName());
         holder.tvPhone.setText(lsFilted.get(position).getPhone());
         holder.tvAddress.setText(lsFilted.get(position).getAddress());
+
         Glide.with(mContext)
-                .load(R.drawable.avartar)
+                .load(R.drawable.anh)
                 .thumbnail(0.4f)
                 .apply(options)
                 .into(holder.imgAvartar);
@@ -93,7 +101,8 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
                 intent.putExtra("address", lsFilted.get(position).getAddress());
                 intent.putExtra("avartar", lsFilted.get(position).getAvartar());
                 v.getContext().startActivity(intent);
-               // notifyItemChanged(position);
+
+
 
             }
         });
@@ -101,12 +110,14 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
             @Override
             public void onClick(View v) {
                 data.deleteUsers(String.valueOf(lsFilted.get(position).getId_user()));
+                lister.update(true);
                 Toast.makeText(mContext, "Xóa thành công.", Toast.LENGTH_SHORT).show();
             }
         });
 
 
     }
+
 
     @Override
     public int getItemCount() {
@@ -118,6 +129,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
         TextView tvName;
         TextView tvPhone;
         TextView tvAddress;
+        TextView tvTitle;
         ImageView imgAvartar;
         ImageView imgSua;
         ImageView imgXoa;
@@ -128,6 +140,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
             tvName = itemView.findViewById(R.id.tv_name);
             tvPhone = itemView.findViewById(R.id.tv_phone);
             tvAddress = itemView.findViewById(R.id.tv_address);
+            tvTitle = itemView.findViewById(R.id.id_title);
             imgAvartar = itemView.findViewById(R.id.img_avartar);
             imgSua = itemView.findViewById(R.id.btn_sua);
             imgXoa = itemView.findViewById(R.id.btn_xoa);
@@ -168,13 +181,5 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.RecyclerViewHo
     }
 
 
-//    public void updateEmployeeListItems(List<User> employees) {
-//        final DiffCallbackUser diffCallback = new DiffCallbackUser(this.dataSrc, employees);
-//        final DiffUtil.DiffResult diffResult = DiffUtil.calculateDiff(diffCallback);
-//
-//        this.dataSrc.clear();
-//        this.dataSrc.addAll(employees);
-//        diffResult.dispatchUpdatesTo(this);
-//    }
 
 }

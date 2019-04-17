@@ -7,7 +7,7 @@
     tools:context=".activities.ActivityAddContacts">
 
     <LinearLayout
-        android:id="@+id/linear_name_them_mon_an"
+        android:id="@+id/linearname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_20sdp"
@@ -30,10 +30,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_image_them_mon_an"
+        android:id="@+id/linearphone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_name_them_mon_an"
+        android:layout_below="@id/linearname"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -54,10 +54,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_desc_them_mon_an"
+        android:id="@+id/linearaddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_image_them_mon_an"
+        android:layout_below="@id/linearphone"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -79,10 +79,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_recipe_them_mon_an"
+        android:id="@+id/linearAvartar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_desc_them_mon_an"
+        android:layout_below="@id/linearaddress"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_20sdp"
@@ -104,10 +104,10 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linear_category_them_mon_an"
+        android:id="@+id/linearBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/linear_recipe_them_mon_an"
+        android:layout_below="@id/linearAvartar"
         android:layout_marginLeft="@dimen/_20sdp"
         android:layout_marginTop="@dimen/_50sdp"
         android:layout_marginRight="@dimen/_20sdp"

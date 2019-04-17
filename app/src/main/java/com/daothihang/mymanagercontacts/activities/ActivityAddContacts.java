@@ -1,6 +1,7 @@
 package com.daothihang.mymanagercontacts.activities;
 
-import android.content.Context;
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.daothihang.mymanagercontacts.R;
+import com.daothihang.mymanagercontacts.models.User;
 import com.daothihang.mymanagercontacts.untils.DatabaseContacts;
 
 public class ActivityAddContacts extends AppCompatActivity {
@@ -21,7 +23,7 @@ public class ActivityAddContacts extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_contacts);
         findId();
-        loadData();
+        initView();
 
     }
 
@@ -35,7 +37,7 @@ public class ActivityAddContacts extends AppCompatActivity {
 
     }
 
-    private void loadData() {
+    private void initView() {
         btnThem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -51,7 +53,10 @@ public class ActivityAddContacts extends AppCompatActivity {
                 String address = editAddress.getText().toString();
                 String avartar = editAvartar.getText().toString();
                 database.insertUsers(name, phone, address, avartar);
-                notifyAll();
+
+                Intent intent=new Intent();
+                intent.putExtra("DATA",new User(""+ -1,name,phone,address,avartar));
+                setResult(Activity.RESULT_OK,intent);
                 finish();
                 Toast.makeText(getApplicationContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
             }
@@ -65,7 +70,7 @@ public class ActivityAddContacts extends AppCompatActivity {
 
         database = new DatabaseContacts(getApplicationContext());
 
-
-
     }
+
+
 }

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginLeft="@dimen/_10sdp"
@@ -8,74 +7,92 @@
     android:layout_marginRight="@dimen/_10sdp"
     android:orientation="horizontal">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <RelativeLayout
         android:id="@+id/a"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="@dimen/_80sdp"
             android:id="@+id/img_avartar"
-            android:padding="@dimen/_15sdp"
+            android:layout_width="@dimen/_80sdp"
             android:layout_height="@dimen/_80sdp"
-            android:src="@mipmap/ic_launcher" />
-    </LinearLayout>
+            android:padding="@dimen/_15sdp"
+            android:src="@drawable/anh" />
+
+        <TextView
+            android:id="@+id/id_title"
+            android:padding="@dimen/_30sdp"
+            android:layout_marginLeft="@dimen/_5sdp"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:text="H"
+            android:textSize="@dimen/_15sdp" />
+    </RelativeLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_toRightOf="@+id/a"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/_15sdp"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_15sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_toRightOf="@+id/a"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_width="wrap_content"
-            android:text="Name"
             android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
             android:textColor="#000"
             android:textSize="@dimen/_13sdp"
-            android:textStyle="bold"
-            android:layout_height="wrap_content" />
+            android:textStyle="bold" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:text="Phone"
             android:id="@+id/tv_phone"
-            android:textColor="#000"
-            android:textSize="@dimen/_13sdp"
-            android:layout_height="wrap_content" />
-        <TextView
             android:layout_width="wrap_content"
-            android:text="Address"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:textColor="#000"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
             android:id="@+id/tv_address"
-            android:textColor="#000"
-            android:textSize="@dimen/_13sdp"
-            android:layout_height="wrap_content" />
-        <TextView
             android:layout_width="wrap_content"
-            android:id="@+id/tv_id_user"
+            android:layout_height="wrap_content"
+            android:text="Address"
             android:textColor="#000"
-            android:visibility="gone"
+            android:textSize="@dimen/_13sdp" />
+
+        <TextView
+            android:id="@+id/tv_id_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
             android:textSize="@dimen/_13sdp"
-            android:layout_height="wrap_content" />
+            android:visibility="gone" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
-        android:orientation="vertical"
-       android:layout_marginTop="@dimen/_20sdp"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_height="wrap_content">
+        android:layout_marginTop="@dimen/_20sdp"
+        android:orientation="vertical">
+
         <ImageView
-            android:layout_width="@dimen/_20sdp"
             android:id="@+id/btn_sua"
-            android:src="@drawable/ic_sua"
-            android:layout_height="@dimen/_20sdp" />
-        <ImageView
             android:layout_width="@dimen/_20sdp"
-            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_sua" />
+
+        <ImageView
             android:id="@+id/btn_xoa"
-            android:src="@drawable/ic_delete_black_24dp"
-            android:layout_height="@dimen/_20sdp" />
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/ic_delete_black_24dp" />
     </LinearLayout>
 </RelativeLayout>
